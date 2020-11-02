@@ -8,7 +8,7 @@
       const next = () => {
         document.documentElement.style.setProperty(
           '--rainbow',
-          `hsl(${(Date.now() / 80) % 360} 80% 40%)`
+          `hsl(${(Date.now() / 80) % 360} 80% 35%)`
         )
         requestAnimationFrame(next)
       }
