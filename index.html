@@ -63,7 +63,7 @@
         line-height: 0;
         border: 1.5px solid currentColor;
         border-radius: 100%;
-        transition: all ease 0.1s;
+        transition: all ease 0.18s;
       }
 
       nav a:hover,
@@ -75,6 +75,7 @@
       }
 
       nav svg {
+        position: relative;
         --size: 28px;
         fill: none;
         stroke: currentColor;
@@ -109,13 +110,17 @@
         <svg><use xlink:href="assets/feather-sprite.svg#mail" /></svg>
       </a>
       <a href="https://github.com/sk22" title="GitHub">
-        <svg><use xlink:href="assets/feather-sprite.svg#github" /></svg>
+        <svg style="top: 2px; left: -0.5px">
+          <use xlink:href="assets/feather-sprite.svg#github" />
+        </svg>
       </a>
       <a href="https://linkedin.com/in/sk22dev" title="LinkedIn">
         <svg><use xlink:href="assets/feather-sprite.svg#linkedin" /></svg>
       </a>
       <a href="https://twitter.com/sk22dev" title="Twitter">
-        <svg><use xlink:href="assets/feather-sprite.svg#twitter" /></svg>
+        <svg style="top: 1.2px">
+          <use xlink:href="assets/feather-sprite.svg#twitter" />
+        </svg>
       </a>
     </nav>
   </body>
