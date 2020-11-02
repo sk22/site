@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sk22</title>
+    <script>
+      const next = () => {
+        document.documentElement.style.setProperty(
+          '--rainbow',
+          `hsl(${(Date.now() / 80) % 360} 80% 40%)`
+        )
+        requestAnimationFrame(next)
+      }
+      requestAnimationFrame(next)
+    </script>
+    <style>
+      :root {
+        --rainbow: black;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        height: inherit;
+        background-color: var(--rainbow);
+      }
+
+      nav {
+        display: flex;
+        width: 70%;
+        height: 70%;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translate(0, 24px);
+        transition: all ease 0.2s;
+      }
+
+      nav * + * {
+        margin-left: 16px;
+      }
+
+      nav:hover {
+        opacity: 100%;
+        transform: translate(0);
+      }
+
+      nav a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --size: 48px;
+        color: white;
+        text-decoration: none;
+        line-height: 0;
+        border: 1.5px solid currentColor;
+        border-radius: 100%;
+        transition: all ease 0.1s;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--rainbow);
+        border-color: transparent;
+        transform: scale(1.3);
+      }
+
+      nav svg {
+        --size: 28px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* with size */
+      nav a,
+      nav svg {
+        width: var(--size);
+        height: var(--size);
+      }
+
+      @media (orientation: portrait) {
+        nav {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav * + * {
+          margin-left: 0;
+          margin-top: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="mailto:mail@sk22.ml">
+        <svg><use xlink:href="assets/feather-sprite.svg#mail" /></svg>
+      </a>
+      <a href="https://github.com/sk22">
+        <svg><use xlink:href="assets/feather-sprite.svg#github" /></svg>
+      </a>
+      <a href="https://linkedin.com/in/sk22dev">
+        <svg><use xlink:href="assets/feather-sprite.svg#linkedin" /></svg>
+      </a>
+      <a href="https://twitter.com/sk22dev">
+        <svg><use xlink:href="assets/feather-sprite.svg#twitter" /></svg>
+      </a>
+    </nav>
+  </body>
+</html>
