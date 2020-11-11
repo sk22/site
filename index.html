@@ -16,14 +16,20 @@
       }
       requestAnimationFrame(next)
 
+      function toggleFullscreen() {
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen()
+        } else if (document.body.requestFullscreen) {
+          document.body.requestFullscreen()
+        }
+      }
+
       window.addEventListener('DOMContentLoaded', () => {
-        document.body.addEventListener('dblclick', () => {
-          if (document.fullscreenElement && document.exitFullscreen) {
-            document.exitFullscreen()
-          } else if (document.body.requestFullscreen) {
-            document.body.requestFullscreen()
-          }
+        document.addEventListener('keypress', event => {
+          if (event.code === 'KeyF') toggleFullscreen()
         })
+
+        document.body.addEventListener('dblclick', toggleFullscreen)
       })
     </script>
     <style>
