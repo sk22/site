@@ -18,8 +18,11 @@
 
       window.addEventListener('DOMContentLoaded', () => {
         document.body.addEventListener('dblclick', () => {
-          console.log('double click')
-          document.body.requestFullscreen()
+          if (document.fullscreenElement && document.exitFullscreen) {
+            document.exitFullscreen()
+          } else if (document.body.requestFullscreen) {
+            document.body.requestFullscreen()
+          }
         })
       })
     </script>
