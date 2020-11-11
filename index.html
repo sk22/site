@@ -15,6 +15,13 @@
         requestAnimationFrame(next)
       }
       requestAnimationFrame(next)
+
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.addEventListener('dblclick', () => {
+          console.log('double click')
+          document.body.requestFullscreen()
+        })
+      })
     </script>
     <style>
       :root {
@@ -32,6 +39,9 @@
         justify-content: center;
         color: white;
         height: inherit;
+      }
+
+      body, body::backdrop {
         background-color: var(--rainbow);
       }
 
